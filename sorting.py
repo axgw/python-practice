@@ -12,22 +12,33 @@ def merge_sort(arr: []):
 
         i = j = k = 0
 
-        while i < len(left) and j < len(right):
-            if left[i] <= right[j]:
+        while i < len(left) or j < len(right):
+            if j == len(right) or (i < len(left) and left[i] <= right[j]):
                 arr[k] = left[i]
                 i += 1
             else:
                 arr[k] = right[j]
                 j += 1
             k += 1
-        while i < len(left):
-            arr[k] = left[i]
-            i += 1
-            k += 1
-        while j < len(right):
-            arr[k] = right[j]
-            j += 1
-            k += 1
+
+        # while i < len(left) and j < len(right):
+        #     if left[i] <= right[j]:
+        #        The following 4 lines appear 2 times (excluding else)
+        #         arr[k] = left[i]
+        #         i += 1
+        #     else:
+        #         arr[k] = right[j]
+        #         j += 1
+        #     k += 1
+        # Repeated while loops could be merged
+        # while i < len(left):
+        #     arr[k] = left[i]
+        #     i += 1
+        #     k += 1
+        # while j < len(right):
+        #     arr[k] = right[j]
+        #     j += 1
+        #     k += 1
 
 
 # Code to print the list
