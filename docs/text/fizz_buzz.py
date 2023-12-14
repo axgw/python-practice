@@ -18,3 +18,13 @@ def fizz_buzz(n: int):
 
 
 print(fizz_buzz(100))
+
+
+# Fizz Buzz but make it Pythonic
+def fizz_buzz_lambda(n: int):
+    return [*map(lambda i: 'Fizz'*(not i % 3)+'Buzz'*(not i % 5) or i, range(1, n + 1))]
+
+
+for val in fizz_buzz_lambda(100):
+    print(val)
+
